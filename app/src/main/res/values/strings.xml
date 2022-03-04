@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Caterpillar</string>
+    <string name="play_button">Tap to start</string>
+    <string name="backgr_color">Choose background color:</string>
+    <string name="snake_color">Choose body color:</string>
+    <string name="green">Green</string>
+    <string name="blue">Blue</string>
+    <string name="orange">Orange</string>
+    <string name="white">White</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
+    <string name="music">Music:</string>
+    <string name="vibration">Vibration:</string>
+    <string name="settings">SETTINGS</string>
+    <integer name="com_vk_sdk_AppId">6045239</integer>
+</resources>
