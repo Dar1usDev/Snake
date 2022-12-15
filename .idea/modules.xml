@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SNAKE.iml" filepath="$PROJECT_DIR$/SNAKE.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SNAKE.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SNAKE.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Snake.iml" filepath="$PROJECT_DIR$/.idea/modules/Snake.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Snake.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Snake.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Snake.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Snake.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Snake.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Snake.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Snake.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Snake.app.unitTest.iml" />
     </modules>
   </component>
 </project>
