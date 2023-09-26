@@ -5,7 +5,6 @@ import android.graphics.Canvas;
 import android.view.View;
 
 
-
 public class VKView extends View {
 
     public VKView(Context context) {

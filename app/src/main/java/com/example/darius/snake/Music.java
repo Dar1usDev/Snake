@@ -12,7 +12,6 @@ public class Music extends Service implements MagicInterface {
     public static int poss;
 
 
-
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -21,9 +20,9 @@ public class Music extends Service implements MagicInterface {
 
     @Override
     public void onCreate() {
-            player = MediaPlayer.create(this, R.raw.ingamethesnowangel);
-            player.setLooping(true);
-            player.start();
+        player = MediaPlayer.create(this, R.raw.ingamethesnowangel);
+        player.setLooping(true);
+        player.start();
 
     }
 
@@ -46,8 +45,8 @@ public class Music extends Service implements MagicInterface {
 
     @Override
     public void Pausemusic() {
-     poss = player.getCurrentPosition();
-     player.stop();
+        poss = player.getCurrentPosition();
+        player.stop();
     }
 
     @Override

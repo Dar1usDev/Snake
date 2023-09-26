@@ -33,7 +33,7 @@ public class Game extends AppCompatActivity implements MagicInterface {
 
     @Override
     public void Stopmusic() {
-        stopService(new Intent(this,Music.class));
+        stopService(new Intent(this, Music.class));
     }
 
 
@@ -41,19 +41,19 @@ public class Game extends AppCompatActivity implements MagicInterface {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         file = new File(getApplicationContext().getFilesDir(), "MaxScoreFile.txt");
-        MaxScore=" ";
+        MaxScore = " ";
         try {
-               MaxScore = FileWorker.read(file);
-        } catch(FileNotFoundException e ) {
-               e.printStackTrace();
+            MaxScore = FileWorker.read(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
         registerReceiver(batteryReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
         Maxscore = 0;
         Maxscore = Integer.parseInt(MaxScore);
         setContentView(new GameView(this));
         music = Settings.musicallowed;
-        if (music){
-           startService(new Intent(this, Music.class));
+        if (music) {
+            startService(new Intent(this, Music.class));
         }
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
@@ -63,26 +63,25 @@ public class Game extends AppCompatActivity implements MagicInterface {
 
     @Override
     public void Vibrate() {
-    vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-    vibrator.vibrate(vibr);
+        vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        vibrator.vibrate(vibr);
     }
 
     @Override
     public void GameOver() {
         unregisterReceiver(batteryReceiver);
         ScoreSaving();
-        Intent Int = new Intent(this,GameOverScreen.class);
+        Intent Int = new Intent(this, GameOverScreen.class);
         startActivity(Int);
         this.finish();
     }
 
 
-
     public void ScoreSaving() {
         MaxScore = String.valueOf(GameView.MaxScore);
         try {
-            FileWorker.update(MaxScore,file);
-        }catch(FileNotFoundException e){
+            FileWorker.update(MaxScore, file);
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -91,7 +90,7 @@ public class Game extends AppCompatActivity implements MagicInterface {
         @Override
         public void onReceive(Context context, Intent intent) {
             level = intent.getIntExtra("level", 0);
-            Log.e("TAG", " BATTERY: " + level );
+            Log.e("TAG", " BATTERY: " + level);
         }
     };
 
@@ -112,7 +111,7 @@ public class Game extends AppCompatActivity implements MagicInterface {
 
     @Override
     public void Continuemusic() {
-       Music.player.seekTo(Music.poss);
+        Music.player.seekTo(Music.poss);
     }
 
     @Override
@@ -122,7 +121,7 @@ public class Game extends AppCompatActivity implements MagicInterface {
 
     @Override
     public void Exit() {
-           this.finish();
+        this.finish();
     }
 
     @Override
@@ -143,11 +142,10 @@ public class Game extends AppCompatActivity implements MagicInterface {
     @Override
     public void WinScreen() {
         unregisterReceiver(batteryReceiver);
-        Intent Int = new Intent(this,WinnerScreen.class);
+        Intent Int = new Intent(this, WinnerScreen.class);
         startActivity(Int);
         this.finish();
     }
-
 
 
 }

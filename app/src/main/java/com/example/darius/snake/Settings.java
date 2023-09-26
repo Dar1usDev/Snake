@@ -17,16 +17,15 @@ import android.widget.RadioGroup;
 
 @TargetApi(18)
 public class Settings extends AppCompatActivity implements MagicInterface {
-    public static String FileName = "SavedData", Music = "Music", Vibration = "Vibration",Backgroundcolor = "BGcolor",Snakebodycolor = "SBcolor";
-    public static int musicallowedInt,vibrationallowedInt;
+    public static String FileName = "SavedData", Music = "Music", Vibration = "Vibration", Backgroundcolor = "BGcolor", Snakebodycolor = "SBcolor";
+    public static int musicallowedInt, vibrationallowedInt;
     public static SharedPreferences SavedData;
-    public static String bgcolor,bodycolor;
+    public static String bgcolor, bodycolor;
 
-    public RadioGroup RGbgcolor,RGbodycolor;
-    public static boolean vibrationallowed,musicallowed;
-    public RadioButton RBmusicon,RBmusicoff,RBvibrationon,RBvibrationoff;
-    public RadioButton RBbodygreen,RBbodyblue,RBbodyorange,RBbggreen,RBbgblue,RBbgwhite;
-
+    public RadioGroup RGbgcolor, RGbodycolor;
+    public static boolean vibrationallowed, musicallowed;
+    public RadioButton RBmusicon, RBmusicoff, RBvibrationon, RBvibrationoff;
+    public RadioButton RBbodygreen, RBbodyblue, RBbodyorange, RBbggreen, RBbgblue, RBbgwhite;
 
 
     @Override
@@ -38,10 +37,10 @@ public class Settings extends AppCompatActivity implements MagicInterface {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         SavedData = getSharedPreferences(FileName, Context.MODE_PRIVATE);
-        vibrationallowedInt = SavedData.getInt(Vibration,1);
-        musicallowedInt = SavedData.getInt(Music,1);
-        bgcolor = SavedData.getString(Backgroundcolor,"white");
-        bodycolor = SavedData.getString(Snakebodycolor,"green");
+        vibrationallowedInt = SavedData.getInt(Vibration, 1);
+        musicallowedInt = SavedData.getInt(Music, 1);
+        bgcolor = SavedData.getString(Backgroundcolor, "white");
+        bodycolor = SavedData.getString(Snakebodycolor, "green");
 
         RGbgcolor = (RadioGroup) findViewById(R.id.RGbgcolor);
         RGbodycolor = (RadioGroup) findViewById(R.id.RGbodycolor);
@@ -59,7 +58,7 @@ public class Settings extends AppCompatActivity implements MagicInterface {
         RBmusicon = (RadioButton) findViewById(R.id.RBmusicON);
         RBmusicoff = (RadioButton) findViewById(R.id.RBmusicOFF);
 
-        switch (bgcolor){
+        switch (bgcolor) {
             case "white":
                 RBbgwhite.setChecked(true);
                 break;
@@ -73,7 +72,7 @@ public class Settings extends AppCompatActivity implements MagicInterface {
                 break;
         }
 
-        switch (bodycolor){
+        switch (bodycolor) {
             case "green":
                 RBbodyorange.setChecked(true);
                 break;
@@ -87,12 +86,16 @@ public class Settings extends AppCompatActivity implements MagicInterface {
                 break;
         }
 
-        if (vibrationallowedInt==1){
+        if (vibrationallowedInt == 1) {
             RBvibrationon.setChecked(true);
-        } else{RBvibrationoff.setChecked(true);}
-        if (musicallowedInt==1){
+        } else {
+            RBvibrationoff.setChecked(true);
+        }
+        if (musicallowedInt == 1) {
             RBmusicon.setChecked(true);
-        } else{RBmusicoff.setChecked(true);}
+        } else {
+            RBmusicoff.setChecked(true);
+        }
 
     }
 
@@ -108,14 +111,14 @@ public class Settings extends AppCompatActivity implements MagicInterface {
 
     public void DataSaving() {
         SharedPreferences.Editor editor = SavedData.edit();
-        editor.putInt( Music ,musicallowedInt);
-        editor.putInt( Vibration ,vibrationallowedInt);
-        editor.putString(Backgroundcolor,bgcolor);
-        editor.putString(Snakebodycolor,bodycolor);
+        editor.putInt(Music, musicallowedInt);
+        editor.putInt(Vibration, vibrationallowedInt);
+        editor.putString(Backgroundcolor, bgcolor);
+        editor.putString(Snakebodycolor, bodycolor);
         editor.apply();
     }
 
-    public void checking(){
+    public void checking() {
 
         int checkedRadioButtonbody = RGbodycolor.getCheckedRadioButtonId();
         int checkedRadioButtonbg = RGbgcolor.getCheckedRadioButtonId();
@@ -151,13 +154,17 @@ public class Settings extends AppCompatActivity implements MagicInterface {
                 break;
         }
 
-        if (musicallowed){
+        if (musicallowed) {
             musicallowedInt = 1;
-        } else {musicallowedInt =0;}
+        } else {
+            musicallowedInt = 0;
+        }
 
-        if (vibrationallowed){
+        if (vibrationallowed) {
             vibrationallowedInt = 1;
-        } else {vibrationallowedInt =0;}
+        } else {
+            vibrationallowedInt = 0;
+        }
     }
 
     @Override
@@ -207,7 +214,7 @@ public class Settings extends AppCompatActivity implements MagicInterface {
 
     @Override
     public void Exit() {
-     this.finish();
+        this.finish();
     }
 
 }

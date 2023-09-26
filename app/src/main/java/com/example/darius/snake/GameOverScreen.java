@@ -12,7 +12,6 @@ public class GameOverScreen extends AppCompatActivity implements MagicInterface 
     public boolean music;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +40,7 @@ public class GameOverScreen extends AppCompatActivity implements MagicInterface 
 
     @Override
     public void Exit() {
-        stopService(new Intent(this,Music.class));
+        stopService(new Intent(this, Music.class));
         finishAffinity();
     }
 

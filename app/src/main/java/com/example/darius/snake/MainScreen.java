@@ -9,9 +9,8 @@ import android.util.Log;
 import android.view.WindowManager;
 
 
-
 @TargetApi(18)
-public class MainScreen extends AppCompatActivity implements MagicInterface  {
+public class MainScreen extends AppCompatActivity implements MagicInterface {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +32,7 @@ public class MainScreen extends AppCompatActivity implements MagicInterface  {
 
 
     @Override
-    public void toGame(){
+    public void toGame() {
 
     }
 
@@ -79,4 +78,4 @@ public class MainScreen extends AppCompatActivity implements MagicInterface  {
     }
 
 
-    }
+}

@@ -20,17 +20,17 @@ import java.io.File;
 import java.io.FileNotFoundException;
 
 public class WinnerScreen extends AppCompatActivity implements MagicInterface {
-         public MagicInterface MagInt;
-         public Bitmap win,play,exit;
-         public int Xx,winY,playY,exitY;
-         public float Width,Height,TouchY;
-         public Paint paint = new Paint();
-         public boolean allowtotouch;
-         public int delay = 500;
+    public MagicInterface MagInt;
+    public Bitmap win, play, exit;
+    public int Xx, winY, playY, exitY;
+    public float Width, Height, TouchY;
+    public Paint paint = new Paint();
+    public boolean allowtotouch;
+    public int delay = 500;
 
 
     @Override
-    protected void onCreate( Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(new WinView(this));
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -41,17 +41,17 @@ public class WinnerScreen extends AppCompatActivity implements MagicInterface {
     }
 
 
-    public class WinView extends View{
+    public class WinView extends View {
 
 
-        public WinView (Context context) {
+        public WinView(Context context) {
             super(context);
             Width = MainScreenView.Width;
             Height = MainScreenView.Height;
-            File file =new File(getApplicationContext().getFilesDir(), "MaxScoreFile.txt");
+            File file = new File(getApplicationContext().getFilesDir(), "MaxScoreFile.txt");
             try {
                 FileWorker.update("0", file);
-            }catch (FileNotFoundException e){
+            } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
             try {
@@ -87,10 +87,10 @@ public class WinnerScreen extends AppCompatActivity implements MagicInterface {
         @Override
         protected void onDraw(Canvas canvas) {
             super.onDraw(canvas);
-            canvas.drawBitmap(win,Width/2 - (Xx/2),Height/6-winY/2,null);
-            canvas.drawBitmap(play,Width/2 - (Xx/2),Height/2-playY/2,null);
-            canvas.drawBitmap(exit,Width/2 - (Xx/2),Height*5/6-exitY/2,null);
-            canvas.drawLine(0,Height*2/3,Width,Height*2/3,paint);
+            canvas.drawBitmap(win, Width / 2 - (Xx / 2), Height / 6 - winY / 2, null);
+            canvas.drawBitmap(play, Width / 2 - (Xx / 2), Height / 2 - playY / 2, null);
+            canvas.drawBitmap(exit, Width / 2 - (Xx / 2), Height * 5 / 6 - exitY / 2, null);
+            canvas.drawLine(0, Height * 2 / 3, Width, Height * 2 / 3, paint);
         }
 
         @Override
@@ -121,7 +121,7 @@ public class WinnerScreen extends AppCompatActivity implements MagicInterface {
 
     @Override
     public void toGame() {
-        Intent Int = new Intent(this,Game.class);
+        Intent Int = new Intent(this, Game.class);
         startActivity(Int);
         this.finish();
     }
@@ -163,7 +163,7 @@ public class WinnerScreen extends AppCompatActivity implements MagicInterface {
 
     @Override
     public void Exit() {
-        stopService(new Intent(this,Music.class));
+        stopService(new Intent(this, Music.class));
         finishAffinity();
     }
 

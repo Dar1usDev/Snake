@@ -1,7 +1,6 @@
 package com.example.darius.snake;
 
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -26,7 +25,7 @@ public class ApplicationClass extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // vkAccessTokenTracker.startTracking();
-       // VKSdk.initialize(this);
+        // VKSdk.initialize(this);
         Intent intent = new Intent(ApplicationClass.this, VKAuthorization.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);

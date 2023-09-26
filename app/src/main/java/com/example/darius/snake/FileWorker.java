@@ -13,17 +13,17 @@ public class FileWorker {
     public static String read(File file) throws FileNotFoundException {
         StringBuilder sb = new StringBuilder();
 
-        if(!file.exists()){
+        if (!file.exists()) {
             try {
                 file.createNewFile();
-                write("0",file);
-            }catch(IOException e){
+                write("0", file);
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
 
         try {
-            BufferedReader in = new BufferedReader(new FileReader( file.getAbsoluteFile()));
+            BufferedReader in = new BufferedReader(new FileReader(file.getAbsoluteFile()));
             try {
                 String s;
                 while ((s = in.readLine()) != null) {
@@ -32,15 +32,14 @@ public class FileWorker {
             } finally {
                 in.close();
             }
-        } catch(IOException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
         return sb.toString();
     }
 
 
-
-    public static void write( String text,File file) {
+    public static void write(String text, File file) {
 
         try {
             PrintWriter out = new PrintWriter(file.getAbsoluteFile());
@@ -49,18 +48,18 @@ public class FileWorker {
             } finally {
                 out.close();
             }
-        } catch(IOException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
 
-    public static void update(String newText,File file) throws FileNotFoundException {
-        if(file.exists()) {
+    public static void update(String newText, File file) throws FileNotFoundException {
+        if (file.exists()) {
             StringBuilder sb = new StringBuilder();
             sb.append(newText);
-            write("0",file);
-            write(sb.toString(),file);
+            write("0", file);
+            write(sb.toString(), file);
         }
     }
 }
